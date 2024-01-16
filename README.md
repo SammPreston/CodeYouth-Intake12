@@ -1,2 +1,2 @@
 # CodeYouth-Intake12
-Intake12 Notes
+Tech Trainer Notes on Intake-12 Curriculum for Code Youth

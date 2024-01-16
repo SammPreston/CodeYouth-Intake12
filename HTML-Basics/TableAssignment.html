@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table nthchild styling</title>
+</head>
+<body>
+   <!-- This is a "internal stylesheet" you can use this syntax to add styles to your elements -->
+    <style>
+        span {
+            color: red;
+        }
+        table {
+            border-collapse;
+            border-spacing: 0;
+        }
+        th, td {
+            padding: 5px 10px;
+        }
+        tr:nth-child(even) {
+            background-color: gainsboro;
+        }
+    </style>
+    <!-- In the table tag is an "inline style" -->
+    <table style="border: 1px solid black;">
+        <!-- &lt; and &gt; are 'syntax characters'. This is how you display markup symbols as text on your html document -->
+        <tr>
+            <th>Tag</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>&lt; !--..-- &gt;</td>
+            <td>Defines a comment</td>
+        </tr>
+        <tr>
+            <td>&lt; !DOCTYPE &gt;</td>
+            <td>Defines the doucment type</td>
+        </tr>
+        <tr>
+            <td>&lt; a &gt;</td>
+            <td>Defines a hyperlink</td>
+        </tr>
+        <tr>
+            <td>&lt; abbr &gt;</td>
+            <td>Defines an abbreviation or an acronym</td>
+        </tr>
+        <tr>
+            <td>&lt; acronym &gt;</td>
+            <td><span>Not supported in HTML5. Use &lt; abbr &gt; instead.</span><br>Defines an acromym</td>
+        </tr>
+        <tr>
+            <td>&lt; address &gt;</td>
+            <td>Defines contact information for the author/owner of a document</td>
+        </tr>
+        <tr>
+            <td>&lt; applet &gt;</td>
+            <td><span>Not supported in HTML5. Use &lt;embed&gt; or &lt;object&gt; instead</span><br>Defines an embedded applet</td>
+        </tr>
+
+    </table>
+</body>
+</html>

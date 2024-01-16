@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact form</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- No style added -->
+    <form>
+        <fieldset>
+            <legend>Registration</legend> 
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="username" maxlength="16" size="10" value="Full Name" required>
+            <br><br>
+            <label for="date">Date:</label>
+            <input type="date">
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" >
+            <br><br>
+            <label for="password">Password:</label>
+            <input type="password">
+            <br><br>
+            <label for="desc">Description:</label>
+            <textarea rows="2" cols="10" value="Enter Summary">Enter Summary</textarea>
+            <br><br>
+            <!-- Notice the difference between the 'value' property for the checkbox and the radio button. -->
+            <label for="skills">Skills:</label>
+            <input type="checkbox" name="skills1" id="skills" value="html">HTML</input>
+            <input type="checkbox" name="skills2" id="skills" value="css">CSS</input>
+            <input type="checkbox" name="skills3" id="skills" value="js">JS</input>
+            <br><br>
+            <label for="Gender">Gender</label>
+            <!-- Try changing the radio button to have all the same value and see what happens -->
+            <input type="radio" name="radio1" id="gender" value="female">Female</input>
+            <input type="radio" name="radio1" id="gender" value="male">Male</input>
+            <input type="radio" name="radio1" id="gender" value="other">Other</input>
+            <br><br>
+            <label for="country">Country:</label>
+            <select name="country" id="country">
+                <option value="canada">Canada</option>
+                <option value="america">America</option>
+            </select>
+            <br><br>
+            <label for="file">Upload File:</label>
+            <input type="file">
+            <br><br>
+            <input type="submit" value="register">
+            <input type="reset" value="reset">
+            <input type="button" value="click me" alert>
+        </fieldset>
+
+    </form> 
+    
+</body>
+</html>
