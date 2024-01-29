@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Calculator</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        fieldset{
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        #cart {
+            background-color: whitesmoke;
+            box-shadow: 0 0 10px gray;
+            height: 300px;
+            width: 100%;
+        }
+        .highlight {
+            font-weight: bold;
+            color: red;
+        }
+        .italicUnderline {
+            font-style: italic;
+            text-decoration: underline;
+            text-decoration-color: red;
+        }
+        .bronze-membership {
+            color: rgb(146, 128, 23);
+        }
+        .silver-membership {
+            color: silver;
+        }
+        .gold-membership {
+            color: gold;
+        }
+        .platinum-membership {
+            color: rgb(154, 179, 177);
+        }
+
+    </style>
+</head>
+<body> 
+    <script>
+        const formField = document.createElement('fieldset')
+            const legend = document.createElement('legend')
+                legend.textContent="Membership Calculator";
+            formField.appendChild(legend)
+
+
+            const levelLabel = document.createElement('label')
+                levelLabel.textContent= 'Choose Membership Level';
+            formField.appendChild(levelLabel)
+
+            const levelSelection = document.createElement('select');
+
+                let membership = [
+                    {
+                        title: "Bronze",
+                        cost: 50
+                    },
+                    {
+                        title: "Silver",
+                        cost: 100
+                    },
+                    {
+                        title: "Gold",
+                        cost: 120
+                    },
+                    {
+                        title: "Platinum",
+                        cost: 160
+                    }
+                ]
+
+                membership.forEach ((level) => {
+
+                    let levelSelect = document.createElement('option');
+                        levelSelect.classList.add('levelOption')
+                        levelSelect.textContent= level.title + " - $" + level.cost;
+                    levelSelection.appendChild(levelSelect)
+
+                })
+
+            formField.appendChild(levelSelection)
+
+            const monthLabel = document.createElement('label')
+                monthLabel.textContent="Number of months: ";
+            formField.appendChild(monthLabel)
+
+            const monthSelection = document.createElement('select')
+
+                let months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+                months.forEach((ele) => {
+
+                    let month = document.createElement('option');
+                        month.classList.add('month')
+                        month.textContent=ele;                                
+                    monthSelection.appendChild(month)
+
+                })
+
+                        
+            formField.appendChild(monthSelection)
+
+            const poolAccessCheckContainer = document.createElement('div');
+                
+                const poolLabel = document.createElement('label');
+                    poolLabel.textContent='Pool Access? + $25.00 (leave box blank for no)  '
+                poolAccessCheckContainer.appendChild(poolLabel)
+
+                let poolCheck = document.createElement('input')
+                    poolCheck.setAttribute("type", "checkbox")
+                poolAccessCheckContainer.appendChild(poolCheck)
+
+            formField.appendChild(poolAccessCheckContainer)
+
+            const submit = document.createElement('button')
+                submit.type="submit";
+                submit.textContent="Calculate";
+            formField.appendChild(submit)
+
+            submit.addEventListener('click', submitCalc)
+
+        document.body.appendChild(formField)
+    
+
+        // Handle calculations
+
+            
+
+            
+
+        function submitCalc() {
+
+            const selectedLevel = levelSelection.value.split(" - $")
+            const levelTitle = selectedLevel[0]
+            const levelCost = parseFloat(selectedLevel[1])
+                
+
+            const selectedMonth = parseFloat(monthSelection.value)
+            // console.log(selectedMonth)
+
+            let poolCost = 0;
+            if(poolCheck.checked) {
+                poolCost = 25;
+            }
+
+            poolDescription = poolCheck.checked ? `with pool access $${poolCost}.00 ` : "";
+            // console.log(poolCost)
+
+            const totalCost = levelCost * selectedMonth + poolCost;
+            // console.log(`total cost $${totalCost}.00`)
+
+            const cart = document.getElementById('cart')
+                cart.id=('cart');
+                cart.innerHTML='';        
+
+                const title = document.createElement('h2')
+
+                    if(levelTitle === 'Bronze') {
+                        title.textContent='Just Trying it out!';
+                        title.classList.add('bronze-membership')
+                    }else if (levelTitle === 'Silver') {
+                        title.textContent = 'Felt Cute Might Commit'
+                        title.classList.add("silver-membership")
+                    }else if (levelTitle === 'Gold') {
+                        title.textContent = 'I aint saying she a gold digger';
+                        title.classList.add("gold-membership")                        
+                    }else {
+                        title.textContent = 'Natty Boss Babe';
+                        title.classList.add("platinum-membership")
+                    }
+                    
+                cart.appendChild(title)
+
+                const totalDesc = document.createElement('p')
+                    totalDesc.classList.add('totalSection')
+                    totalDesc.innerHTML += 
+                    `The <span class="italicUnderline"> ${levelTitle} membership </span> <span class="highlight"> $${levelCost}.00 </span> for <span class="highlight">${selectedMonth} month(s) </span> <span class="italicUnderline">${poolDescription}</span> will be  <span class="highlight">$${totalCost}.00</span>  `
+                cart.appendChild(totalDesc)
+
+            document.body.appendChild(cart)    
+                
+        }
+            
+    </script>
+    <div id="cart"></div>
+</body>
+</html>

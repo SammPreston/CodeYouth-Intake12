@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Icon Library -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>W3Nav</title>
+    <link rel="stylesheet" href="/HTML-Basics/styles.css">
+
+ 
+</head>
+<body>
+    <nav>
+        <div id="topNav">
+            <div id="left">
+                <a id="imageContainer" href="https://www.w3schools.com/"><img src="/HTML-Basics/w3scoolsThumbnail.png" alt="W3Schools Logo"></a>
+                <div class="lTabs">
+                    <a class="link" href="#"><p>Tutorials</p></a>
+                    <a class="link" href="#"><p>Exercises</p></a>
+                    <a class="link" href="#"><p>Certificates</p></a>
+                    <a class="link" href="#"><p>Services</p></a>
+                </div>
+                <div id="searchbar-container">
+                    <input id="searchbar" type="text" method="POST" > 
+                        <span type="submit" class="material-symbols-outlined" style="color: rgb(99, 99, 99);">
+                            search
+                        </span>
+                    </div>
+            </div>
+            
+            <div id="right">
+                <div class="lTabs">
+                    <a class="link" href="#"><p>Jobs</p></a>
+                    <a class="link" href="#"><p>Spaces</p></a>
+                    <a class="link" href="#"><p>Get Certified</p></a>
+                </div>
+
+                <div id="userHandleButtons" onmouseover="darkElement()" onmouseout="revert()">
+                    <input type="button" value="Sign Up" id="signUp" onmouseover="remain()">
+                    <input type="button" value="Log in" id="signIn">   
+                </div>
+
+            </div>
+        </div>
+        <div id="bottomNav">
+            <a href="#"><p>html</p></a>
+            <a href="#"><p>css</p></a>
+            <a href="#"><p>javascript</p></a>
+            <a href="#"><p>sql</p></a>
+            <a href="#"><p>python</p></a>
+            <a href="#"><p>java</p></a>
+            <a href="#"><p>php</p></a>
+            <a href="#"><p>how to</p></a>
+            <a href="#"><p>w3.css</p></a>
+            <a href="#"><p>c</p></a>
+            <a href="#"><p>c++</p></a>
+            <a href="#"><p>c#</p></a>
+            <a href="#"><p>bootstrap</p></a>
+            <a href="#"><p>react</p></a>
+            <a href="#"><p>mysql</p></a>
+            <a href="#"><p>jquery</p></a>
+            <a href="#"><p>excel</p></a>
+            <a href="#"><p>xml</p></a>
+            <a href="#"><p>django</p></a>
+            <a href="#"><p>numpy</p></a>
+            <a href="#"><p>pandas</p></a>
+    
+        </div>
+    </nav>
+    <script>
+        const searchbar = document.getElementById('searchbar');
+        const searchbarContainer = document.getElementById('searchbar-container');
+
+        searchbar.addEventListener('focus', function() {
+            searchbarContainer.style.cssText='border:#04AA6D;box-shadow: 0 0 5px #04AA6D;';
+        })
+        
+        document.addEventListener('click', function(event){
+            if(event.target !== searchbar) {
+                searchbarContainer.style.cssText='border: 1px solid gray; box-shadow: none;'
+            }
+        })
+        const signIn = document.getElementById('signIn');
+        const buttonContainer = document.getElementById('userHandleButtons');
+        
+        function remain() {
+            buttonContainer.style.cssText='background-color:#D9EEE1;';
+            signIn.style.cssText='background-color:#D9EEE1; color: black;';
+        }
+        function darkElement() {
+            buttonContainer.style.cssText='background-color: #016440;';
+            signIn.style.cssText='background-color: #016440; color:white;'
+        }
+        function revert() {
+            buttonContainer.style.cssText='background-color:#D9EEE1;';
+            signIn.style.cssText='background-color:#D9EEE1; color: black;';
+        }
+        
+        
+    </script>
+   
+</body>
+</html>

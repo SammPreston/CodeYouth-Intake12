@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 10000px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+
+
+
+/* Parent div */
+#topNav {
+    padding:0 7px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+/* Left top */
+#left { 
+
+    height: 39.95px;
+    display: flex;
+   
+}
+
+/* left and right link tabs */
+.lTabs {
+    margin: 0 5px;
+    height: 39.95px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+   
+}
+
+#imageContainer {
+    height: 39px;
+    width: 38.36px;
+}
+
+#left  img { 
+    height: 39px;
+    width: 38.36px;
+    /* border: 1px solid black; */
+}
+
+.link {
+    padding: 0 5px;
+    height: 100%;
+    font-size: 16px;
+    
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+    align-items: center;
+    
+}
+.link:hover {
+    height: 100%;
+   
+    background-color: #04AA6D;
+    color: white;
+}
+
+
+
+#searchbar-container {
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 30px;
+}
+
+#searchbar{
+    height: 50%;
+    border: 0;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+
+/* magnifying glass for search submission */
+.material-symbols-outlined {
+font-variation-settings:
+'FILL' 0,
+'wght' 400,
+'GRAD' 0,
+'opsz' 24
+}
+.material-symbols-outlined:hover{
+    background-color:aliceblue;
+    cursor: pointer;
+  
+   
+    border-radius: 100%;
+}
+
+#right {
+    height: 39.95px;
+    display: flex;
+    align-items: center;
+    /* background-color:rgba(229, 194, 185, 0.979); */
+}
+#userHandleButtons {
+    height: 36px;
+    background-color:#D9EEE1;
+    border-radius: 30px;
+}
+#signUp {
+    height: 100%;
+    border-radius: 30px;
+    color: white;
+    background-color:#04AA6D;
+    border: none;
+}
+#signUp:hover {
+    background-color: #03935e;
+}
+#signIn {
+    height: 100%;
+    border-radius: 30px;
+    background-color:#D9EEE1;
+    border: none;
+}
+
+
+
+#bottomNav {
+    background-color: #282A35;
+    display: flex;
+    justify-content: space-around;
+}
+#bottomNav a {
+    color: white;
+    text-decoration: none;
+}
+#bottomNav a:hover {
+    
+    background-color: rgb(128, 112, 112);
+}
