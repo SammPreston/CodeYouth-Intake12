@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes: The Basics</title>
+</head>
+<body>
+    <h2 id="title">Classes: The Basics</h2>
+    <script type="text/javascript">
+        /*
+
+            Classes are used to create one or more objects, otherwise known as an object being created by a class definition. 
+
+            Class -> Object
+
+            Instance Properties: What they have
+                - name
+                - age
+                - height
+
+            Instance Methods: what they do
+                - talk
+                - run 
+                - jump
+
+
+             In this example we will be using classes to create rectangles
+        */
+
+        class Rectangle {
+            // This is my class definition
+            
+            // Set up
+            constructor(_width, _height, _color) {
+                console.log("The Rectangle is being created!")
+                // Instance Properties are found inside of the Constructor
+
+                this.width = _width;
+                this.height = _height;
+                this.color = _color;
+            }
+
+            // Instance Methods will always be under the constructor
+
+            getArea () {
+                return this.width * this.height;
+            }
+
+            consoleDescription () {
+                console.log(`I am a rectangle of ${this.width} X ${this.height} and I am ${this.color}`)
+            }
+        }
+
+        let myRectangle1 = new Rectangle(3, 5, "blue");
+        console.log(myRectangle1.getArea())
+        myRectangle1.consoleDescription();
+        let myRectangle2 = new Rectangle(37, 5, "green");
+        console.log(myRectangle2.getArea())
+        myRectangle2.consoleDescription();
+        
+    </script>
+</body>
+</html>

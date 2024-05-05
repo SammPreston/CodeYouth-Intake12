@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testimonials</title>
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #parent {
+            height: auto;
+            width: 500px;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid black;
+        }
+        #tabContainer {
+            background-color: rgb(76,76,76);
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+        }
+        .tab {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color: rgb(58, 56, 54);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           
+        }
+        .tab::before {
+            content: "";
+            
+        }
+        .tab:hover {
+            background-color:rgb(76,76,76);
+        }
+   
+       
+        #display {
+            height: 250px;
+            background-color: rgb(133,198,35);
+            border: 2px solid black;
+        }
+        .pointer::after {
+           /* ! shape triangle */
+            height: 0;
+            width: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid rgb(223, 227, 216);
+            /* Position Triangle inline with tab element */
+            content: "";
+            position: absolute;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="tabContainer"></div>
+        <div id="display"></div>
+    </div>
+    <script>
+        let testimonials = [
+            {
+                name: "Brimpston Rogers",
+                testimonial: "So cool man! Changed my life forever."
+            },
+            {
+                name: "Sarsha Warsha",
+                testimonial: "Never knew what I was missing in life until now!"
+            },
+            {
+                name: "Jurima Datatag",
+                testimonial: "If you haven't bought this yet, you better act fast! I got a big family and they sure like meatballs."
+            },
+            {
+                name: "Displa McFlex",
+                testimonial: "I have never beem more aligned in my life. Thank you Mr. Meatball!"
+            }
+        ]
+    
+        var display = document.getElementById('display');
+        var tabContainer = document.getElementById('tabContainer')
+        var selectedTab = null;
+        var pointer = null;
+    
+        function preview(name) {
+            return function() {
+                let testDisplay = document.getElementById('display');
+                testDisplay.innerHTML = '';
+    
+                let description = document.createElement('p');
+                let testimonial = testimonials.find(testimonial => testimonial.name === name);
+    
+                if (testimonial) {
+                    description.innerHTML = `"${testimonial.testimonial}" ~ <strong>${testimonial.name}</strong>`;
+                    if (selectedTab) {
+                        selectedTab.style.backgroundColor="";
+                        selectedTab.removeChild(pointer)
+                    }
+                    this.style.backgroundColor = "rgb(172, 254, 46)";
+                    pointer = document.createElement('div')
+                        pointer.classList.add('pointer')
+                    this.appendChild(pointer)
+                    selectedTab = this;
+                }
+    
+                testDisplay.appendChild(description);
+            }
+        }
+    
+        testimonials.forEach((ele) => {
+            let tab = document.createElement('div');
+
+                tab.classList.add('tab');
+                tab.addEventListener('click', preview(ele.name));
+                let clientName = document.createElement('p');
+                    clientName.textContent = ele.name;
+                    clientName.classList.add('tabValue')
+                tab.appendChild(clientName);
+                
+            tabContainer.appendChild(tab);
+        });
+    </script>
+    
+</body>
+</html>

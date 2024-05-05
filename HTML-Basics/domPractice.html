@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #box {
+            height: 50px;
+            width: 50px;
+            border: 2px solid green;
+            background-color: aqua;
+        }
+    </style>
+     <!-- <div id="box"></div> -->
+    <button id="create" >Click Me!</button>
+    <!-- <img  alt="" id="img"> -->
+    <script>
+        // var box = document.createElement("img")
+        // body.src="https://th.bing.com/th/id/R.4a41884d58d93ab0dd3ecd0cc1557615?rik=enEYNhQjaOhHww&riu=http%3a%2f%2fwww.dog-learn.com%2fdog-breeds%2fmaltese%2fimages%2fmaltese-u2.jpg&ehk=oPtVeL4fDoeKniODxMyy75yddU%2b08jOE51OUdW9cvmk%3d&risl=&pid=ImgRaw&r=0";
+        // document.body.appendChild(box)
+
+        let button = document.getElementById('create');
+        button.addEventListener('click', create)
+        function create () {
+             let box =  document.createElement('div')
+            box.id='box';
+            document.body.appendChild(box)
+        }
+           
+        
+            
+        
+
+
+        
+        
+        // for (let i = 0; i < 5; i++) {
+        //     let boxes = document.createElement('div');
+        //     boxes.classList.add('boxxes')
+        //     document.body.appendChild(boxes)
+        // }
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

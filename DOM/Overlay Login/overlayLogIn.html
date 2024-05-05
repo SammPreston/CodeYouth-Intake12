@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay Menu</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            /* width: 100%; */
+            background-color: gray;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #left {
+            display: flex;
+            flex-direction: column;
+        }
+        #nav {
+            display: flex;
+        }
+        .navComp {
+            margin: 10px;
+        }
+        p {
+            cursor: pointer;
+        }
+        #right {
+            display: flex;
+        }
+        .userStyle {
+            margin: 10px;
+        }
+
+        .formField {
+            padding: 50px;
+            width: 50%;
+            background-color: white;
+            border-radius: 30px;
+            text-align: center;
+            position: relative;
+            left:20%;
+            transform: translateX(-20%);
+            top: 30%;
+            transform: translateY(-30%);
+
+        }
+
+        /* Log in forms */
+        .inputContainer {
+            display: flex;
+            flex-direction: column;
+        }
+        .input {
+            margin: 10px;
+            /* width:  */
+        }
+
+        #hiddenDiv {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="left">
+            <h1 style="margin: 10px;">Title</h1>
+            <div id="nav">
+                <p class="navComp">Home</p>
+                <p class="navComp">About</p>
+                <p class="navComp">Concact Us</p>
+            </div>    
+        </div>
+        <div id="right">
+            <p class="accountHandler userStyle">Login</p>
+            <p class="userStyle">|</p>
+            <p class="accountHandler userStyle">Sign Up</p>
+        </div>
+    </header>
+    <main>
+        <div id="hiddenDiv"></div>
+    </main>
+
+    <script>
+        let accountHandling = document.getElementsByClassName('accountHandler');
+
+        for (let i = 0; i < accountHandling.length; i++) {
+            accountHandling[i].addEventListener('click', handleAccountAction);
+        }
+
+        function handleAccountAction(event) {
+            const clickedElement = event.target;
+            if (clickedElement.innerHTML === "Login") {
+                console.log("Log in clicked");
+                var OverLay = document.createElement('div');
+                    OverLay.style.cssText = "position: fixed; display: block; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 2; cursor: pointer;";
+
+                    let Form = document.createElement('fieldset');
+                        Form.classList.add('formField');
+                    
+                        let title = document.createElement('h1');
+                            title.textContent = "Log in";
+                        Form.appendChild(title);
+
+                        let inputField = document.createElement('div');
+                            inputField.classList.add('inputContainer');
+
+                            let userNameInput = document.createElement('input');
+                                userNameInput.setAttribute("type", "text")
+                                userNameInput.setAttribute("placeholder", "Enter Username")
+                                userNameInput.classList.add('input')
+                            inputField.appendChild(userNameInput)
+
+                            let passwordInput = document.createElement('input')
+                                passwordInput.setAttribute("type", "password")
+                                passwordInput.setAttribute("placeholder", "Enter Password")
+                                passwordInput.classList.add('input')
+                            inputField.appendChild(passwordInput)
+
+                            let submitButton = document.createElement('button')
+                                submitButton.setAttribute('type', 'submit')
+                                submitButton.innerText="submit";
+                                submitButton.style.cssText="width: 40%; align-self: center;"
+                                submitButton.classList.add('input')
+                            inputField.appendChild(submitButton)
+
+                        Form.appendChild(inputField)
+                    OverLay.appendChild(Form);
+                document.body.appendChild(OverLay);
+                OverLay.addEventListener('click', closeForm)
+                function closeForm(event) {
+                    if(event.target === OverLay) {
+                        document.body.removeChild(OverLay)
+                        document.removeEventListener('click', closeForm)
+                    }
+                }
+
+            } else if (clickedElement.innerHTML === "Sign Up") {
+                console.log("Sign up clicked");
+                var OverLay = document.createElement('div');
+                    OverLay.style.cssText = "position: fixed; display: block; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 2; cursor: pointer;";
+
+                    let Form = document.createElement('fieldset');
+                        Form.classList.add('formField');
+                    
+                        let title = document.createElement('h1');
+                            title.textContent = "Sign up";
+                        Form.appendChild(title);
+
+                        let inputField = document.createElement('div');
+                            inputField.classList.add('inputContainer');
+
+                            let userNameInput = document.createElement('input');
+                                userNameInput.setAttribute("type", "email")
+                                userNameInput.setAttribute("placeholder", "Enter Username")
+                                userNameInput.classList.add('input')
+                            inputField.appendChild(userNameInput)
+
+                            let submitButton = document.createElement('button')
+                                submitButton.setAttribute('type', 'submit')
+                                submitButton.innerText="Next";
+                                submitButton.style.cssText="width: 40%; align-self: center;"
+                                submitButton.classList.add('input')
+                            inputField.appendChild(submitButton)
+
+                        Form.appendChild(inputField)
+                    OverLay.appendChild(Form);
+                document.body.appendChild(OverLay);
+                OverLay.addEventListener('click', closeForm)
+                function closeForm(event) {
+                    if(event.target === OverLay) {
+                        document.body.removeChild(OverLay)
+                        document.removeEventListener('click', closeForm)
+                    }
+                }
+            }
+            
+        }
+
+
+      
+    </script>
+</body>
+</html>

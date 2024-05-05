@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Box Practice</title>
+    <style>
+        body {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .level {
+            margin: 20px;
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            /* border: 1px solid black; */
+        }
+        #parent1 {
+            height: 50px;
+            width: 200px;
+            border: 1px solid gray;
+            display: flex;
+            justify-content: space-between;
+        }
+        #parent {
+            /* border: 1px solid green; */
+            display: flex;
+        }
+        .children {
+            height: 44px;
+            width: 44px;
+            border: 4px solid red;
+        }
+        #directDecendent {
+            height: 200px;
+            width: 50px;
+            border: 1px solid gray;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #grandDaddy {
+            height: 50px;
+            width: 250px;
+            border: 1px solid gray;
+            display: flex;
+            justify-content: space-between;
+        }
+        #bigMama {
+            height: 250px;
+            width: 250px;
+            border: 1px solid gray;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #ancestor {
+            display: flex;
+        }
+        #presentGeneology {
+            width: 100%;
+            /* border: 1px solid green; */
+            display: flex;
+            justify-content: space-between;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="levelOne" class="level" style="display: flex; justify-content:start;">
+        <div id="parent1">
+            <div class="children"></div>
+            <div class="children"></div>
+        </div>
+    </div>
+
+    <div id="levelTwo" class="level" style="display: flex; justify-content:start;">
+        <div id="directDecendent">
+            <div class="children"></div>
+            <div class="children"></div>
+        </div>
+    </div>
+
+    <div id="levelThree" class="level">
+        <div id="grandDaddy">
+            <div class="children"></div>
+            <div id="parent">
+                <div class="children"></div>
+                <div class="children"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="levelFour" class="level"> 
+        <div id="bigMama">
+            <div id="ancestor">
+                <div class="children"></div>
+                <div class="children"></div>
+                <div class="children"></div>
+                <div class="children"></div>
+                <div class="children"></div>
+            </div>
+            <div id="presentGeneology">
+                <div class="children"></div>
+                <div class="children"></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

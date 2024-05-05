@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #parent {
+            display: flex;
+            height: auto;
+            width: 100%;
+        }
+        #red {
+            border: 10px solid red;
+            height: 600px;
+            width: 50%;
+        }
+        #twoDivs {
+            /* border: 1px solid yellow; */
+            height: 590px;
+            width: 50%;
+        }
+        #green {
+            border: 10px solid green;
+            height: 49.2%;
+            width: 95%;
+        }
+        #blue {
+            border: 10px solid blue;
+            height: 49.2%;
+            width: 95%;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="red"></div>
+        <div id="twoDivs">
+            <div id="green"></div>
+            <div id="blue"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
